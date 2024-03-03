@@ -1,0 +1,27 @@
+/* public/css/styles.css */
+
+.food-cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500vh; /* Adjust this value as needed for your layout */
+}
+
+.card {
+    width: 100%;
+    max-width: 400px; /* Adjust the maximum width of the card as needed */
+    height: auto;
+    padding: -200px;
+    margin: 0 auto; /* Center the card horizontally */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Adjust the height of the image as needed */
+    object-fit: cover;
+}
+.container-v{
+
+    height:500px;
+    width: 300px;
+}

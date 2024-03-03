@@ -1,0 +1,32 @@
+// AuthController.php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Login;
+
+class AuthController extends Controller
+{
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        // Find the user by username
+        $user = Login::where('username', $username)->first();
+
+        // Check if the user exists and the password is correct
+        if ($user && $password === $user->password) {
+            // Authentication passed...
+            return redirect()->intended('/');
+        }
+
+        // Authentication failed...
+        return back()->withErrors(['username' => 'Invalid username or password'])->withInput($request->only('username'));
+    }
+}
